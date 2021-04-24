@@ -10,6 +10,7 @@ namespace DrinksNet.AuxApi
     public class UserRepository: IUserRepository
     {
         private UsersDataAccessLayer _usersDataAccessLayer = new UsersDataAccessLayer();
+        private UserDrinksDataAccessLayer _userDrinksDataAccessLayer = new UserDrinksDataAccessLayer();
         private bool disposed = false;
         private readonly IMapper _mapper;
 
@@ -30,7 +31,12 @@ namespace DrinksNet.AuxApi
             var loggedUser = await _usersDataAccessLayer.GetUserForLogin(user.Email, user.Password);
             var loggedUserResponse = _mapper.Map<User>(loggedUser);
             return loggedUserResponse;
+        }
 
+        public async Task<IEnumerable<int>> GetUserDrinks(int userId)
+        {
+            var allUsers = await _userDrinksDataAccessLayer.GetUserDrinks(userId);
+            return allUsers;
         }
     }
 }

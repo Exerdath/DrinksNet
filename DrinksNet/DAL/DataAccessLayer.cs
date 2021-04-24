@@ -10,7 +10,7 @@ namespace DrinksNet.DAL
         private string host = "barmapp-cosmos.documents.azure.com";
         private string password = "AS57Bj4QtVd5HxsTO2CtJEyHlM2Z79N0TVQxgeM5nxao6Onm1MlUGxvgchYVw6eMIBPGjROGmr63YapdQGkHWg==";
 
-        private string dbName = "barmapp-repository";
+        private string dbName = "barmapp-db";
         private bool _disposed = false;
         protected IMongoDatabase _database;
 

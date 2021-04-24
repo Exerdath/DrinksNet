@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DrinksNet.DAL
 {
-    public class UsersDataAccessLayer: DataAccessLayer, IDisposable
+    public class UsersDataAccessLayer : DataAccessLayer, IDisposable
     {
         private string collectionName = "users";
 

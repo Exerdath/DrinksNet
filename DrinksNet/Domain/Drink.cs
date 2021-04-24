@@ -8,9 +8,9 @@ namespace DrinksNet.Domain
         public string StrDrink { get; set; }
         public string StrAlcoholic { get; set; }
         public string StrInstructions { get; set; }
-        public string StrThumb { get; set; }
-        public IEnumerable<string> Ingredients { get; set; }
-        public IEnumerable<string> Measures { get; set; }
+        public string StrDrinkThumb { get; set; }
+        public IList<string> Ingredients { get; set; } = new List<string>();
+        public IList<string> Measures { get; set; } = new List<string>();
         public string Path { get; set; }
     }
 }

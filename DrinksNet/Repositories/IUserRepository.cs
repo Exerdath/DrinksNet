@@ -11,5 +11,6 @@ namespace DrinksNet.AuxApi
     {
         Task<User> FindUserOnLogin(UserLoginDto user);
         Task<IEnumerable<User>> GetAllUsers();
+        Task<IEnumerable<int>> GetUserDrinks(int userId);
     }
 }

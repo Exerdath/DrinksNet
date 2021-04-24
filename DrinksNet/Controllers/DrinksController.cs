@@ -1,12 +1,12 @@
-﻿using System.Threading.Tasks;
-using DrinksNet.AuxApi;
+﻿using DrinksNet.AuxApi;
 using DrinksNet.Domain;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace DrinksNet.Controllers
 {
-    [Route("api/{controller}")]
-    public class DrinksController: Controller
+    [Route("{controller}")]
+    public class DrinksController : Controller
     {
         private ICocktailRepository _drinksRepository;
 
@@ -14,13 +14,20 @@ namespace DrinksNet.Controllers
         {
             _drinksRepository = repository;
         }
-
+        [Route("{id}")]
         [HttpGet]
-        public async Task<ActionResult<Drink>> Get()
+        public async Task<ActionResult<Drink>> Get(int id)
         {
-            var check = _drinksRepository.GetDrinksById(1);
-            return Ok("alabala");
+            var check = await _drinksRepository.GetDrinkById(id);
+            return Ok(check);
         }
 
+        [Route("drinksByIng/{ingredient}")]
+        [HttpGet]
+        public async Task<ActionResult<Drink>> GetByIng(string ingredient)
+        {
+            var check = await _drinksRepository.GetDrinksByIngredient(ingredient);
+            return Ok(check);
+        }
     }
 }

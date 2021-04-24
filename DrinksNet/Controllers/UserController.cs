@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DrinksNet.Controllers
 {
-    [Route("api/{controller}")]
+    [Route("{controller}")]
     public class UserController: Controller
     {
         private IUserRepository _userRepository;
@@ -38,6 +38,21 @@ namespace DrinksNet.Controllers
             try
             {
                 var result = await _userRepository.FindUserOnLogin(userLogin);
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
+            }
+        }
+
+        [Route("{userId}")]
+        [HttpGet]
+        public async Task<ActionResult<UserDrink[]>> GetUserDrinks(int userId)
+        {
+            try
+            {
+                var result = await _userRepository.GetUserDrinks(userId);
                 return Ok(result);
             }
             catch (Exception)

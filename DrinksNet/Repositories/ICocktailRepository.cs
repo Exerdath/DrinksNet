@@ -6,8 +6,8 @@ namespace DrinksNet.AuxApi
 {
     public interface ICocktailRepository
     {
-        IEnumerable<Drink> GetDrinksByIngredient(string ingredient);
-        Task<Drink> GetDrinksById(int id);
+        Task<IEnumerable<DrinkListItem>> GetDrinksByIngredient(string ingredient);
+        Task<Drink> GetDrinkById(int id);
 
     }
 }
