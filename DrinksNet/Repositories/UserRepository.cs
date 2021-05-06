@@ -9,14 +9,16 @@ namespace DrinksNet.AuxApi
 {
     public class UserRepository: IUserRepository
     {
-        private UsersDataAccessLayer _usersDataAccessLayer = new UsersDataAccessLayer();
-        private UserDrinksDataAccessLayer _userDrinksDataAccessLayer = new UserDrinksDataAccessLayer();
+        private readonly IUsersDataAccessLayer _usersDataAccessLayer;
+        private readonly IUserDrinksDataAccessLayer _userDrinksDataAccessLayer;
         private bool disposed = false;
         private readonly IMapper _mapper;
 
-        public UserRepository(IMapper mapper)
+        public UserRepository(IMapper mapper, IUsersDataAccessLayer usersDataAccessLayer, IUserDrinksDataAccessLayer userDrinksDataAccessLayer)
         {
             _mapper = mapper;
+            _usersDataAccessLayer = usersDataAccessLayer;
+            _userDrinksDataAccessLayer = userDrinksDataAccessLayer;
         }
 
 

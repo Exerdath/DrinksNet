@@ -2,7 +2,7 @@
 
 namespace DrinksNet.Domain.Dtos
 {
-    public class UsersDrinksDto
+    public class UserDrinkDto
     {
         public ObjectId Id { get; set; }
         public int userId { get; set; }
