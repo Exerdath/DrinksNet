@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DrinksNet.Repositories
 {
@@ -6,6 +7,7 @@ namespace DrinksNet.Repositories
     {
         void FavouriteDrink(int userId, int drinkId);
         void UnFavouriteDrink(int userId, int drinkId);
+        Task<int[]> GetUserDrinks(int userId);
 
 
     }

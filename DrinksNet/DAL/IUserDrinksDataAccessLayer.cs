@@ -8,7 +8,7 @@ namespace DrinksNet.DAL
     public interface IUserDrinksDataAccessLayer
     {
         Task<IEnumerable<UserDrinkDto>> GetAllUserDrinks();
-        Task<List<int>> GetUserDrinks(int userId);
+        Task<int[]> GetUserDrinks(int userId);
         void AddDrinkToUser(int userId, int drinkId);
         void RemoveDrinkFromUser(int userId, int drinkId);
     }

@@ -42,12 +42,16 @@ namespace DrinksNet.DAL
                 var builder = Builders<UserDto>.Filter;
                 var filter = builder.Eq("email", email) & builder.Eq("password", password);
                 return await collection.Find(filter).Limit(1).SingleAsync();
-                 
+
             }
             catch (MongoConnectionException)
             {
                 return new UserDto();
 
+            }
+            catch(Exception)
+            {
+                return new UserDto();
             }
         }
 

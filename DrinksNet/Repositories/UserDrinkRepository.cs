@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using DrinksNet.DAL;
 
 namespace DrinksNet.Repositories
@@ -22,6 +23,12 @@ namespace DrinksNet.Repositories
         public void UnFavouriteDrink(int userId, int drinkId)
         {
             _userDrinksDataAccessLayer.RemoveDrinkFromUser(userId, drinkId);
+        }
+
+        public async Task<int[]> GetUserDrinks(int userId)
+        {
+            var allUsers = await _userDrinksDataAccessLayer.GetUserDrinks(userId);
+            return allUsers;
         }
     }
 }

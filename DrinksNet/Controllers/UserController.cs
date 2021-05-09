@@ -46,20 +46,5 @@ namespace DrinksNet.Controllers
             }
         }
 
-        [Route("{userId}")]
-        [HttpGet]
-        public async Task<ActionResult<UserDrink[]>> GetUserDrinks(int userId)
-        {
-            try
-            {
-                var result = await _userRepository.GetUserDrinks(userId);
-                return Ok(result);
-            }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
-            }
-        }
-
     }
 }

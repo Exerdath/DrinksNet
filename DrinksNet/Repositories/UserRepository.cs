@@ -34,11 +34,5 @@ namespace DrinksNet.AuxApi
             var loggedUserResponse = _mapper.Map<User>(loggedUser);
             return loggedUserResponse;
         }
-
-        public async Task<IEnumerable<int>> GetUserDrinks(int userId)
-        {
-            var allUsers = await _userDrinksDataAccessLayer.GetUserDrinks(userId);
-            return allUsers;
-        }
     }
 }

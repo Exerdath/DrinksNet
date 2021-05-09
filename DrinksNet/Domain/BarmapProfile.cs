@@ -15,6 +15,8 @@ namespace DrinksNet.Domain
                 .ForMember(drink => drink.Ingredients, opt => opt.Ignore())
                 .ForMember(drink => drink.Measures, opt => opt.Ignore());
 
+            CreateMap<Drink, DrinkListItem>();
+
             CreateMap<DrinkListByIngredientDto, DrinkListItem>();
             CreateMap<UserDrinkDto, UserDrink>()
                 .ForSourceMember(userDto => userDto.Id, opt => opt.DoNotValidate());

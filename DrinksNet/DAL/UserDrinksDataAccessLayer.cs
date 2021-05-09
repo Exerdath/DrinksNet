@@ -34,7 +34,7 @@ namespace DrinksNet.DAL
             }
         }
 
-        public async Task<List<int>> GetUserDrinks(int userId)
+        public async Task<int[]> GetUserDrinks(int userId)
         {
             try
             {
@@ -48,12 +48,14 @@ namespace DrinksNet.DAL
                     listOfDrinks.Add(userDrinkDto.drinkId);
                 }
 
-                return listOfDrinks;
+                var restul=listOfDrinks.ToArray();
+
+                return restul;
 
             }
             catch (MongoConnectionException)
             {
-                return new List<int>() { 0 };
+                return new int[] {0};
 
             }
         }
